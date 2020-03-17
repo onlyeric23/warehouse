@@ -1,0 +1,104 @@
+@import "../../styles/colors.scss";
+
+$height: 48px;
+$icon-space: 40px;
+
+.input {
+  display: flex;
+
+  border: 1px solid $color-border;
+  border-radius: 4px;
+
+  background-color: white;
+
+  height: $height;
+
+  position: relative;
+
+  box-sizing: border-box;
+
+  > *,
+  > *::after,
+  > *::before {
+    box-sizing: border-box;
+  }
+
+  &.focused {
+    border-color: $color-border-focused;
+  }
+
+  &.elevated .placeholder {
+    top: 0;
+    transform: translate(10px, -65%);
+
+    padding: 0px 10px;
+    border-radius: 4px;
+    background-color: white;
+    font-size: x-small;
+  }
+
+  &.focused .placeholder {
+    color: white;
+    background-color: $primary;
+  }
+
+  &.error {
+    border-color: $danger;
+    color: $danger;
+
+    &.elevated .placeholder {
+      color: white;
+      background-color: $danger;
+    }
+  }
+
+  &.has-icon input {
+    padding: 10px 20px 10px $icon-space;
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 10px;
+    font-size: 20px;
+    fill: lightgray;
+  }
+
+  input {
+    border: 0;
+    border-radius: 4px;
+
+    height: 100%;
+    width: 100%;
+    padding: 10px 20px;
+
+    outline: none;
+  }
+
+  .placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translate(#{$icon-space + 1}, -50%);
+
+    font-size: small;
+
+    transition: 0.2s all ease;
+
+    pointer-events: none;
+  }
+
+  .suffix-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+
+    .seperator {
+      margin-right: 20px;
+      height: 60%;
+      width: 1px;
+      background-color: $color-border;
+    }
+  }
+}
