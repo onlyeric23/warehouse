@@ -9,10 +9,17 @@ const Modal: FunctionComponent<{ onClose: () => void }> = ({
 }) => {
   const [closing, setClosing] = useState(false);
 
+  const handleClose = () => {
+    setClosing(true);
+    if (onClose) {
+      setTimeout(onClose, 200);
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.keyCode === 27) {
-        onClose();
+        handleClose();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
@@ -20,13 +27,6 @@ const Modal: FunctionComponent<{ onClose: () => void }> = ({
       document.removeEventListener("keydown", handleKeyDown);
     };
   });
-
-  const handleClose = () => {
-    setClosing(true);
-    if (onClose) {
-      setTimeout(onClose, 200);
-    }
-  };
 
   return (
     <div className={classNames("modal", { closing })} onClick={handleClose}>
