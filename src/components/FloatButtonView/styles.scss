@@ -1,0 +1,37 @@
+.float-button-view {
+  height: 100%;
+  overflow-y: auto;
+}
+
+$button-size: 40px;
+.float-button {
+  user-select: none;
+
+  border-radius: 50%;
+  border: 1px solid black;
+
+  width: $button-size;
+  height: $button-size;
+
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 9999;
+
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: xx-large;
+  cursor: pointer;
+
+  transform: translateY(100px);
+
+  transition: 0.3s ease all;
+
+  &.show {
+    transform: translateY(0);
+  }
+}
