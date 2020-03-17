@@ -10,6 +10,7 @@ export interface FloatButtonProps
     HTMLDivElement
   > {
   button: ReactNode;
+  hiddenDelay?: number;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   dependencies?: any[];
 }
@@ -17,6 +18,7 @@ export interface FloatButtonProps
 const FloatButtonView: FunctionComponent<FloatButtonProps> = ({
   className,
   button,
+  hiddenDelay = 5000,
   onClick,
   dependencies = [],
   children,
@@ -33,17 +35,18 @@ const FloatButtonView: FunctionComponent<FloatButtonProps> = ({
     clearTimeout(timeoutRef.current);
     timeoutRef.current = window.setTimeout(() => {
       setShowing(false);
-    }, 5000);
+    }, hiddenDelay);
   };
 
   return (
-    <div
-      {...rest}
-      className={classNames("float-button-view", className)}
-      onScroll={handleScroll}
-      ref={ref}
-    >
-      {children}
+    <div className={classNames("float-button-view", className)} {...rest}>
+      <div
+        className="float-button-view-container"
+        onScroll={handleScroll}
+        ref={ref}
+      >
+        {children}
+      </div>
       <div
         className={classNames("float-button", {
           show: !scrollable || (scrollable && showing)
