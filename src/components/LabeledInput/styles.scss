@@ -1,4 +1,5 @@
 @import "../../styles/colors.scss";
+@import "../../styles/mixins.scss";
 
 $height: 48px;
 $icon-space: 40px;
@@ -15,13 +16,7 @@ $icon-space: 40px;
 
   position: relative;
 
-  box-sizing: border-box;
-
-  > *,
-  > *::after,
-  > *::before {
-    box-sizing: border-box;
-  }
+  @include border-box-family;
 
   &.focused {
     border-color: $color-border-focused;
