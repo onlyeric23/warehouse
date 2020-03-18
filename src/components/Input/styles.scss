@@ -3,6 +3,8 @@
 
 $height: 48px;
 $icon-space: 40px;
+$padding-horizontal: 20px;
+$padding-vertical: 10px;
 
 .input {
   display: flex;
@@ -24,7 +26,7 @@ $icon-space: 40px;
 
   &.elevated .placeholder {
     top: 0;
-    transform: translate(10px, -65%);
+    transform: translate($padding-horizontal, -65%);
 
     padding: 0px 10px;
     border-radius: 4px;
@@ -62,7 +64,7 @@ $icon-space: 40px;
 
     height: 100%;
     width: 100%;
-    padding: 10px 20px;
+    padding: $padding-vertical $padding-horizontal;
 
     outline: none;
   }
@@ -70,7 +72,7 @@ $icon-space: 40px;
   .placeholder {
     position: absolute;
     top: 50%;
-    transform: translate(21px, -50%);
+    transform: translate(#{$padding-horizontal + 1}, -50%);
 
     font-size: small;
 
@@ -95,7 +97,8 @@ $icon-space: 40px;
 
   &.has-icon {
     input {
-      padding: 10px 20px 10px $icon-space;
+      padding: $padding-vertical $padding-horizontal $padding-vertical
+        $icon-space;
     }
     .placeholder {
       transform: translate(#{$icon-space + 1}, -50%);
