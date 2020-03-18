@@ -1,0 +1,28 @@
+@import "../../styles/colors.scss";
+
+$button-color: $primary;
+.button {
+  height: 40px;
+  min-width: 100px;
+  padding: 10px 20px;
+
+  background-color: $button-color;
+  border: 0;
+  border-radius: 4px;
+
+  font-size: medium;
+  color: white;
+
+  cursor: pointer;
+
+  transition: all ease 0.2s;
+
+  &:active {
+    background-color: darken($button-color, 10%);
+    transform: translateY(3px);
+  }
+
+  &:disabled {
+    background-color: lighten($button-color, 20%);
+  }
+}
