@@ -47,10 +47,6 @@ $icon-space: 40px;
     }
   }
 
-  &.has-icon input {
-    padding: 10px 20px 10px $icon-space;
-  }
-
   .icon {
     position: absolute;
     top: 0;
@@ -74,7 +70,7 @@ $icon-space: 40px;
   .placeholder {
     position: absolute;
     top: 50%;
-    transform: translate(#{$icon-space + 1}, -50%);
+    transform: translate(21px, -50%);
 
     font-size: small;
 
@@ -94,6 +90,15 @@ $icon-space: 40px;
       height: 60%;
       width: 1px;
       background-color: $color-border;
+    }
+  }
+
+  &.has-icon {
+    input {
+      padding: 10px 20px 10px $icon-space;
+    }
+    .placeholder {
+      transform: translate(#{$icon-space + 1}, -50%);
     }
   }
 }
