@@ -10,9 +10,9 @@ export const Example = () => {
       hiddenDelay={2000}
       style={{
         border: "1px solid black",
-        padding: 20,
-        height: 300
+        padding: 20
       }}
+      height={300}
     >
       Constantinople /ˌkɒnstæntɪˈnoʊpəl/[5] (Greek: Κωνσταντινούπολις, translit.
       Kōnstantinoúpolis (About this soundpronunciation (help·info)); Latin:

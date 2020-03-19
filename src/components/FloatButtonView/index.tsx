@@ -9,6 +9,7 @@ export interface FloatButtonProps
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
   > {
+  height: number | string;
   button: ReactNode;
   hiddenDelay?: number;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -17,6 +18,8 @@ export interface FloatButtonProps
 
 const FloatButtonView: FunctionComponent<FloatButtonProps> = ({
   className,
+  style,
+  height,
   button,
   hiddenDelay = 5000,
   onClick,
@@ -39,7 +42,11 @@ const FloatButtonView: FunctionComponent<FloatButtonProps> = ({
   };
 
   return (
-    <div className={classNames("float-button-view", className)} {...rest}>
+    <div
+      className={classNames("float-button-view", className)}
+      style={{ ...style, height }}
+      {...rest}
+    >
       <div
         className="float-button-view-container"
         onScroll={handleScroll}
